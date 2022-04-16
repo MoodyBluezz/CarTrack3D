@@ -51,14 +51,10 @@ public class CarController : MonoBehaviour
     private void TrajectoryCheck()
     {
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, Vector3.down, out hit))
-        {
-            if (hit.collider.gameObject.layer.Equals(_layerMask))
-            {
-                _gameCondition.text = "YOU LOSE!!!";
-                gameOverPanel.SetActive(true);
-                IsGameFinished = true;
-            }
-        }
+        if (!Physics.Raycast(transform.position, Vector3.down, out hit)) return;
+        if (!hit.collider.gameObject.layer.Equals(_layerMask) || IsGameFinished) return;
+        IsGameFinished = true;
+        _gameCondition.text = "YOU LOSE!!!";
+        gameOverPanel.SetActive(true);
     }
 }

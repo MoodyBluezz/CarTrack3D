@@ -39,9 +39,11 @@ public class FinishController : MonoBehaviour
     
     private void GameOver()
     {
+        if (CarController.IsGameFinished) return;
         CarController.IsGameFinished = true;
         _gameCondition.text = "YOU WIN!!!";
         gameOverPanel.SetActive(true);
         Init();
+
     }
 }
