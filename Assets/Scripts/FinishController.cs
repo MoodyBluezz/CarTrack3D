@@ -7,6 +7,7 @@ public class FinishController : MonoBehaviour
     private TextMeshProUGUI _gameCondition;
     private int _lapCounter;
     private int _maxLapCount;
+    public int Count { get; set; } = 0;
 
     private void Start()
     {
@@ -23,14 +24,16 @@ public class FinishController : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.name.Equals("Car"))
-            _lapCounter++;
-
+        {
+            if (Count == 3)
+                _lapCounter++;
+        }
         CheckLapCounter();
     }
     
     private void CheckLapCounter()
     {
-        if (_lapCounter == _maxLapCount + 1) 
+        if (_lapCounter == _maxLapCount) 
             GameOver();
     }
     

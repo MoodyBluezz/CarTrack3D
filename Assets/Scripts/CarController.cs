@@ -1,6 +1,6 @@
+using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using UnityEngine.Serialization;
 
 public class CarController : MonoBehaviour
 {

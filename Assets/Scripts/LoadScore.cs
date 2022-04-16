@@ -11,6 +11,6 @@ public class LoadScore : MonoBehaviour
     private void OnEnable()
     {
         var score = PlayerPrefs.GetFloat("lastScore");
-        scoreText.text = $"Your last score is: {score}";
+        scoreText.text = $"Your last score is: {score:00:00}";
     }
 }
